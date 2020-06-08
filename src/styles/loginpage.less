@@ -1,0 +1,41 @@
+@backgroundcolor: #F0FFF0;
+
+.whole_form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+  height: calc(100% - 120px);
+  div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 460px;
+    padding: 40px;
+    background-color: @backgroundcolor;
+    label, input{
+      margin-top: 10px;
+    }
+    input{
+      padding: 8px;
+    }
+    label{
+      font-weight: bold;
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+    button{
+      margin-top: 20px;
+      border: 1px solid #FFFAFA;
+      height: 40px;
+      color: white;
+      cursor: pointer;
+      background-color: #4573d5;
+      &:hover{
+        background-color: #0627df;
+      }
+    }
+  }
+}
