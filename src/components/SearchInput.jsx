@@ -1,33 +1,35 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom'
-import {FaSearch} from "react-icons/all";
-import {Box} from 'reflexbox';
+import { useHistory } from 'react-router-dom';
+import { FaSearch } from 'react-icons/all';
+import { Box } from 'reflexbox';
 
-const Input = ({className, value, onChange }) => <input
+const Input = ({ className, value, onChange }) => (
+  <input
     className={className}
     value={value}
     onChange={(e) => onChange(e.target.value)}
-/>
-const Button = ({className, onClick, children}) => (
-    <button type="submit" className={className} onClick={onClick}>{children}</button>
-)
+  />
+);
+const Button = ({ className, onClick, children }) => (
+  <button type="submit" className={className} onClick={onClick}>{children}</button>
+);
 
-export default function SearchInput({searchInput, setSearchInput}) {
-    const history = useHistory();
-    return(
-        <form>
-            <Box
-                css={`
+export default function SearchInput({ searchInput, setSearchInput }) {
+  const history = useHistory();
+  return (
+    <form>
+      <Box
+        css={`
                     width:100%;
                     padding: 10px;
                     border-radius: 10px;
                     height: 40px;
                     position: relative;
                 `}
-            >
-                <Box
-                    as={Input}
-                    css={`
+      >
+        <Box
+          as={Input}
+          css={`
                         width: 100%;
                         transition: 0.2s;
                         padding-left: 10px;
@@ -41,15 +43,15 @@ export default function SearchInput({searchInput, setSearchInput}) {
                             outline: 0;
                         }
                     `}
-                    value={searchInput}
-                    onChange={setSearchInput}
-                />
-                <Box
-                    as={Button}
-                    onClick={() => {
-                        history.push(`/1/${searchInput.trim().split(' ').join('+')}`)
-                    }}
-                    css={`
+          value={searchInput}
+          onChange={setSearchInput}
+        />
+        <Box
+          as={Button}
+          onClick={() => {
+            history.push(`/1/${searchInput.trim().split(' ').join('+')}`);
+          }}
+          css={`
                         position: absolute;
                         top:10px;
                         right:10px;
@@ -62,11 +64,11 @@ export default function SearchInput({searchInput, setSearchInput}) {
                         padding: 5px;
                         cursor: pointer;
                     `}
-                >
-                    Поиск
-                    <FaSearch />
-                </Box>
-            </Box>
-        </form>
-    )
+        >
+          Поиск
+          <FaSearch />
+        </Box>
+      </Box>
+    </form>
+  );
 }

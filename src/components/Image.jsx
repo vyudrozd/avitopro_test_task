@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function Image({
-    src,
-    className
+  src,
+  className,
 }) {
-    return(
-        <img className={className} src={src}  alt={"image"}/>
-    )
+  return (
+    <img className={className} src={src} alt="profile" />
+  );
 }
